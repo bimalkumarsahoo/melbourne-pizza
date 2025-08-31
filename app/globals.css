@@ -1,3 +1,10 @@
+  /* Remove underline from AccordionTrigger and similar buttons */
+  .no-underline,
+  .no-underline:hover,
+  .no-underline:focus {
+    text-decoration: none !important;
+    box-shadow: none !important;
+  }
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -120,6 +127,94 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background: linear-gradient(120deg, #fff8f1 0%, #fbeee6 50%, #f7d9c4 100%);
+    color: #231f20;
+    font-family: var(--font-premium, 'Playfair Display', 'Inter', 'Geist', 'Segoe UI', Arial, serif);
+    min-height: 100vh;
+    letter-spacing: 0.01em;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  :root {
+    --font-premium: 'Playfair Display', 'Inter', 'Geist', 'Segoe UI', Arial, serif;
+  }
+
+  /* Premium fade-in and up animation */
+  .animate-fade-in {
+    animation: fadeInMain 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+  .animate-fade-in-up {
+    animation: fadeInSection 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* Card hover effect */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px 0 rgba(211, 84, 0, 0.10), 0 1.5px 8px 0 rgba(31, 38, 135, 0.04);
+    z-index: 2;
+  }
+
+  /* Accordion trigger effect */
+  .accordion-trigger-premium {
+    transition: color 0.2s, background 0.2s;
+    cursor: pointer;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1.25rem;
+  }
+  .accordion-trigger-premium:focus, .accordion-trigger-premium:active {
+    background: #fbeee6;
+    color: #d35400;
+    outline: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: #231f20;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 8px rgba(243, 156, 18, 0.08);
+  }
+
+  main {
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10), 0 1.5px 8px 0 rgba(211, 84, 0, 0.04);
+    background: rgba(255,255,255,0.97);
+    margin: 2.5rem auto;
+    max-width: 1280px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInMain 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  @keyframes fadeInMain {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  section {
+    margin: 3rem 0;
+    scroll-margin-top: 90px;
+    animation: fadeInSection 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  @keyframes fadeInSection {
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Classy scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: #fbeee6;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #f7d9c4;
+    border-radius: 8px;
+    border: 2px solid #fff8f1;
+  }
+  ::selection {
+    background: #f7d9c4;
+    color: #231f20;
   }
 }
