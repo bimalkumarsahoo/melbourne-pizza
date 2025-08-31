@@ -9,73 +9,18 @@ type Item = {
   image: string
 }
 
-const items: Item[] = [
-  {
-    id: "margherita",
-    name: "Margherita",
-    price: "₹239",
-    desc: "Classic tomato, fresh mozzarella, and basil.",
-    image: "/margherita-pizza.png",
-  },
-  {
-    id: "pepperoni",
-    name: "Pepperoni",
-    price: "₹299",
-    desc: "Loaded with pepperoni and melty mozzarella.",
-    image: "/pepperoni-pizza.png",
-  },
-  {
-    id: "veg-supreme",
-    name: "Veg Supreme",
-    price: "₹279",
-    desc: "Bell peppers, olives, corn, onions, and cheese.",
-    image: "/veg-supreme-pizza.png",
-  },
-  {
-    id: "bbq-chicken",
-    name: "BBQ Chicken",
-    price: "₹329",
-    desc: "Smoky BBQ sauce, tender chicken, and onions.",
-    image: "/bbq-chicken-pizza.png",
-  },
-  {
-    id: "garlic-bread",
-    name: "Garlic Bread",
-    price: "₹129",
-    desc: "Toasty sides brushed with garlic butter.",
-    image: "/garlic-bread.png",
-  },
-  {
-    id: "white-pasta",
-    name: "Creamy White Pasta",
-    price: "₹229",
-    desc: "Silky white sauce with herbs and parmesan.",
-    image: "/white-sauce-pasta.png",
-  },
-  {
-    id: "brownie",
-    name: "Choco Brownie",
-    price: "₹149",
-    desc: "Rich fudge brownie, perfect to finish.",
-    image: "/choco-brownie-dessert.png",
-  },
-  {
-    id: "cola",
-    name: "Cold Drink",
-    price: "₹49",
-    desc: "Chilled soft drink to pair with your slice.",
-    image: "/cold-drink.png",
-  },
-]
 
-export function ItemsGrid() {
+export type { Item };
+
+
+export function ItemsGrid({ items, title, subtitle }: { items: Item[]; title: string; subtitle?: string }) {
   return (
-    <section aria-labelledby="pizza-items" className="mx-auto max-w-6xl px-4 pb-12 sm:pb-16">
+    <section aria-labelledby={title.replace(/\s/g, "-").toLowerCase()} className="mx-auto max-w-6xl px-4 pb-12 sm:pb-16">
       <div className="mb-6 flex items-end justify-between">
-        <h2 id="pizza-items" className="text-pretty text-2xl font-semibold text-gray-900 sm:text-3xl">
-          Pizza & Items
+        <h2 id={title.replace(/\s/g, "-").toLowerCase()} className="text-pretty text-2xl font-semibold text-gray-900 sm:text-3xl">
+          {title}
         </h2>
-        <p className="hidden text-sm text-gray-900/70 sm:block">Freshly made, served hot</p>
+        {subtitle && <p className="hidden text-sm text-gray-900/70 sm:block">{subtitle}</p>}
       </div>
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
