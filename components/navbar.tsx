@@ -13,17 +13,8 @@ export function Navbar({ className }: { className?: string }) {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-14 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 font-semibold text-gray-900 font-sans text-2xl tracking-tight">
-            <img
-              src="/Logo/Melbourne Pizza Logo black CAP.png"
-              alt="Melbourne Pizza Logo"
-              className="h-10 w-auto object-contain drop-shadow-lg"
-            />
-            <img
-              src="/Logo/melbourne pizza.png"
-              alt="Melbourne Pizza Font Logo"
-              className="h-8 w-auto object-contain hidden sm:block drop-shadow"
-            />
+          <Link href="/" className="font-semibold text-gray-900 font-sans">
+            Melbourne Pizza
           </Link>
           <nav aria-label="Main" className="flex items-center gap-6">
             <Link href="/" className="text-sm font-medium text-gray-900 hover:opacity-80">
